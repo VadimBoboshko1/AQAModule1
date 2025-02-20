@@ -7,14 +7,11 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ReqresColorTest {
+public class ReqresColorTest extends BaseReqresColorTest{
     @Test
     public void checkUsersColors() {
         List<GetUsersData> colors = given()
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .baseUri("https://reqres.in/api")
-                .basePath("/unknown")
+                .spec(requestColorSpec)
                 .when().get()
                 .then().log().body().extract().jsonPath().getList("data", GetUsersData.class);
 

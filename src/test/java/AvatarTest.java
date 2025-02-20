@@ -7,18 +7,26 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AvatarTest {
+public class AvatarTest extends BaseAvatarTest {
+
+
+    private static final String base_uri = "https://reqres.in/api";
+    private static final String base_path = "/users";
+    private static final String avatar_url_prefix = "https://reqres.in";
+
     @Test
-    public void chekUsersAvatar() {
+    public void checkUsersAvatar() {
+
         List<GetAvatar> users = given()
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .baseUri("https://reqres.in/api")
-                .basePath("/users")
+                .spec(requestAvatarSpec)
+                .basePath(base_path)  // Используем константу для basePath
                 .when().get()
                 .then().log().body().extract().jsonPath().getList("data", GetAvatar.class);
+
+
         for (GetAvatar user : users) {
-            assertTrue(user.getAvatar().contains("https://reqres.in"),"Avatar URL is incorrect for user: " + user.getAvatar());
+            assertTrue(user.getAvatar().contains(avatar_url_prefix),
+                    "Avatar URL is incorrect for user: " + user.getAvatar());
         }
     }
 }

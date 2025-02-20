@@ -8,16 +8,13 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class ReqresInApiTest {
+public class ReqresInApiTest extends ReqresInApiTestBase{
 
 
     @Test
-    public void getUsersWithCode200() {
+    public void getUsersWithCode200()  {
         given()
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .baseUri("https://reqres.in/api")
-                .basePath("/users?page=2")
+                .basePath("page=2")
                 .when().get()
                 .then().log().body().statusCode(200);
     }
