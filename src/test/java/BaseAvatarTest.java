@@ -13,7 +13,7 @@ public class BaseAvatarTest {
         RestAssured.baseURI = "https://reqres.in/api";
         requestAvatarSpec = given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .baseUri("https://reqres.in/api");
+                .contentType(ContentType.JSON);
+
     }
 }

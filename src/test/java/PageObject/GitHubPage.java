@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GitHubPage {
 
-    private static final SelenideElement buttonSolutions = $(By.xpath("//li[contains(@class, 'HeaderMenu-item') and contains(@class, 'js-header-menu-item')][contains(., 'Solutions')]"));
-    private static final SelenideElement buttonCICD = $(By.xpath("//a[contains(@class, 'HeaderMenu-dropdown-link') and contains(text(), 'CI/CD')]"));
-    private static final SelenideElement buttonResources = $(By.xpath("//button[@type='button' and contains(@class, 'HeaderMenu-link') and contains(., 'Resources')]"));
+    private static final SelenideElement buttonSolutions = $(By.xpath("//button[normalize-space(text())='Solutions']"));
+    private static final SelenideElement buttonCICD = $(By.xpath("//a[contains(@data-analytics-event, 'ci_cd')]"));
+    private static final SelenideElement buttonResources = $(By.xpath("//button[normalize-space(text())='Resources']"));
 
     public void ButtonSolutionsclicked() {
         buttonSolutions.shouldBe(visible).click();

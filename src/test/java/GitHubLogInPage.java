@@ -10,7 +10,7 @@ public class GitHubLogInPage {
 
     private static final SelenideElement userNameInput = $(By.id("login_field"));
     private static final SelenideElement passwordInput = $(By.id("password"));
-    private static final SelenideElement buttonSignIn = $(By.xpath("//input[contains(@class, 'btn-primary')]"));
+    private static final SelenideElement buttonSignIn = $(By.xpath("//input[@type='submit']"));
     private static final SelenideElement invalidCredErrorMessege = $(By.id("js-flash-container"));
     private static final SelenideElement firstNameInput = $(By.id("form-field-first_name"));
 

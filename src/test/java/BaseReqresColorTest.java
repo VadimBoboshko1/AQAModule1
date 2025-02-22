@@ -14,7 +14,6 @@ public class BaseReqresColorTest {
         requestColorSpec = given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .baseUri("https://reqres.in/api")
                 .basePath("/unknown");
     }
 }

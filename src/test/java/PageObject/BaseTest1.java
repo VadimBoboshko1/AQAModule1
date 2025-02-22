@@ -17,10 +17,10 @@ public class BaseTest1 {
 
     protected static final String BASE_URL1 = "https://github.com";
     protected static final String LOGIN_PATH = "/login";
-    protected static final String SOLUTIONS_XPATH = "//li[contains(@class, 'HeaderMenu-item') and contains(@class, 'js-header-menu-item')][contains(., 'Solutions')]";
-    protected static final String CICD_XPATH = "//a[contains(@class, 'HeaderMenu-dropdown-link') and contains(text(), 'CI/CD')]";
-    protected static final String CONTACT_SALES_XPATH = "//a[@href='https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_usecase_cicd']";
-    protected static final String RESOURCES_BUTTON_XPATH = "//button[@type='button' and contains(@class, 'HeaderMenu-link') and contains(., 'Resources')]";
+    protected static final String SOLUTIONS_XPATH = "//button[normalize-space(text())='Solutions']";
+    protected static final String CICD_XPATH = "//a[contains(@data-analytics-event, 'ci_cd')]";
+    protected static final String CONTACT_SALES_XPATH = "//a[contains(@data-analytics-event, 'action':'contact_sales') and contains(@data-analytics-event, 'location':'hero'')]";
+    protected static final String RESOURCES_BUTTON_XPATH = "//button[normalize-space(text())='Resources']";
     protected static final List<String> EXPECTED_TOPICS = List.of("AI", "DevOps", "Security", "Software Development", "View all");
 
 
