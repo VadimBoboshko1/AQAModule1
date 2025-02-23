@@ -11,7 +11,7 @@ public class ReqresInApiTestBase {
     @BeforeAll
     public static void setUp() {
         RestAssured.baseURI = "https://reqres.in/api";
-        requestInApiSpec = given()
+        requestInApiSpec = given() 
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .basePath("/users?");
